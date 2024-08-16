@@ -4,7 +4,7 @@ on:
   pull_request:
     branches:
       - main
-      
+
       # Run a terraform plan
     - name: Terraform Plan
     id: plan
