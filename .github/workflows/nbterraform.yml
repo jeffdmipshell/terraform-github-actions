@@ -37,7 +37,11 @@ jobs:
         RESOURCE_GROUP: ${{ secrets.RESOURCE_GROUP }}
         STORAGE_ACCOUNT: ${{ secrets.STORAGE_ACCOUNT }}
         CONTAINER_NAME: ${{ secrets.CONTAINER_NAME }}
-      run: terraform init
+      run: |
+       export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --vault-name tf-vault-eus2 --query value -o tsv --subscription "141950e1-13e1-447a-8ef4-38a502de49ba")
+       terraform init -backend-config="storage_account_name=$STORAGE_ACCOUNT" -backend-config="container_name=$CONTAINER_NAME" -backend-config="resource_group_name=$RESOURCE_GROUP"
+
+
     # Run a terraform plan for pull requests only
     - name: Terraform Plan
       id: plan
