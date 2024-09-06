@@ -41,7 +41,7 @@ resource "azurerm_resource_group" "resource_group" {
 # Create a storage account
 resource "azurerm_storage_account" "storage_account" {
   provider                 = azurerm.online
-  name                     = "sttfv3jdca"
+  name                     = "sttfv3jdca21"
   resource_group_name      = azurerm_resource_group.resource_group.name
   location                 = azurerm_resource_group.resource_group.location
   account_tier             = "Standard"
