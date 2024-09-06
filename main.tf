@@ -34,7 +34,7 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "resource_group" {
   provider = azurerm.online
-  name     = "rg-tf_V3"
+  name     = "rg-tf_V3jdc"
   location = "eastus2"
 }
 
